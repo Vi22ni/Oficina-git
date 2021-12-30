@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel='stylesheet' href='css/oficina_store_style.css'>
+</head>
+<body>
+    <header>
+        <div class="caixa-rodape">
+            <h1><img src="css/logo_oficina.png" alt='Logo da Oficina'> </h1>
+
+            <nav>
+                <ul>
+                    <li><a href="oficina_home.html">Home</a></li>
+                    <li><a href="oficina_store.html">Serviços</a></li>
+                    <li><a href="contato_oficina.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <form>
+            <label for='ipt-nome'>Nome e sobrenome</label>
+            <input type='text' id='ipt-nome' class='ipt-padrao' required>
+
+            <label for='ipt-email'>E-mail</label>
+            <input type='email' id='ipt-email' class='ipt-padrao' required placeholder='seuemail@domínio.com'>
+
+            <label for='ipt-telefone'>Telefone</label>
+            <input type='tel' id='ipt-telefone' class='ipt-padrao' required placeholder='(xx) xxxxx-xxx'>
+
+            <label for='mensagem'>Mensagem</label>
+            <textarea id='mensagem' cols='70' rows='10' class='ipt-padrao' required></textarea>
+
+            <fieldset class='form-radio'>
+                <legend>Como prefere o nosso contato?</legend>
+                <label for='radio-email'><input type='radio' name='contato' id='radio-email' value='email'>E-mail</label>
+
+                <label for='radio-telefone'><input type='radio' name='contato' id='radio-telefone' value='telefone'>Telefone</label>
+                
+                <label for='radio-whatsapp'><input type='radio' name='contato' id='radio-whatsapp' value='whatsapp' checked>WhatsApp</label>
+                
+            </fieldset>
+
+            <fieldset class='form-select'>
+                <legend>Qual horário prefere ser atendido?</legend>
+                <select>
+                    <option value='manha'>Manhã</option>
+                    <option value='tarde'>Tarde</option>
+                    <option value='noite'>Noite</option>
+                </select>
+            </fieldset>
+
+            <label class='checkbox'><input type='checkbox' checked>Gostaria de receber nossas novidades por e-mail? </label>
+
+            <input type='submit' value='Enviar formulário' class='enviar'>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dia</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Segunda</td>
+                    <td>7h - 17:00</td>
+                </tr>
+                <tr>
+                    <td>Terça</td>
+                    <td>7h - 17:00</td>
+                </tr>
+                <tr>
+                    <td>Quarta</td>
+                    <td>7h - 17:00</td>
+                </tr>
+                <tr>
+                    <td>Quinta</td>
+                    <td>7h - 17:00</td>
+                </tr>
+                <tr>
+                    <td>Sexta</td>
+                    <td>7h - 17:00</td>
+                </tr>
+                <tr>
+                    <td>Sábado</td>
+                    <td>8h30 - 11:30</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </main>
+    <footer> 
+        <p>Copyright Guga Pinturas - 2021</p>
+    </footer>
+</body>
+</html>

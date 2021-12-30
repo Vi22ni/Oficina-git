@@ -1,0 +1,293 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    line-height: 1;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*fim do reset*/
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cabecalho-inteiro {
+    background: url('pexels-scott-webb-2117937.jpg');
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.caixa-rodape {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+
+}
+
+nav {
+    position: absolute;
+    top: 76px;
+    right: 0;
+}
+nav li {
+    display: inline;
+    margin: 0 0 0 15px;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    transition: 1s;
+}
+nav a:hover{
+    color:yellow;
+}
+
+.serviços li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    height: 500px;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+.serviços li:hover{
+    border-color: rgb(193, 193, 38);
+}
+.serviços li:active{
+    border-color: rgb(165, 165, 81);
+}
+.serviços li:hover h2{
+    font-size: 30px;
+}
+.titulo-servico{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.descricao-servico{
+    font-size: 18px
+}
+
+.preco-servico{
+    font-size: 22px;
+    font-weight: bold;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+}
+
+.servico-pintura , .servico-martelinho , .servico-polimento {
+    width: 30%;
+    height: 30%;
+}
+
+
+.imagem-pintura , .imagem-martelinho , .imagem-polimento {
+    width: 50%;
+    height: 50%;
+    border-radius: 4%;
+
+}
+footer{
+    text-align: center; 
+    height: 50px;
+    background-color: rgb(49, 49, 49);
+    margin: 0;
+    color: white;
+}
+
+form{
+    margin: 40px 0;
+}
+
+form label, form p, form  legend{
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+.ipt-padrao{
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px 25px;
+    width: 50%;
+}
+
+.checkbox{
+    margin: 20px 0;
+}
+
+.enviar{
+    width: 40%;
+    padding: 15px 0;
+    background-color: orange;
+    color:#000000;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+.enviar:hover{
+    background-color: rgb(255, 225, 0);
+    transform: scale(1.1);
+
+}
+
+table{
+    margin: 20px 40px
+}
+table thead{
+    background-color: darkorange;
+    color: black;
+    font-weight: bold;
+}
+
+table td, th{
+    padding: 10px 15px;
+    border: 1px solid black;
+}
+
+/*css da página Home*/
+.banner{
+    width:100%;
+}
+/*bom pra usar em botões (a baixo)*/
+.titulo-principal{
+    text-align: center;
+    font-size: 2em; 
+    margin: 0 0 1em;
+    color: rgb(0, 0, 0,);
+    transition: 400ms;
+}
+.titulo-principal:hover{
+    color: rgb(0, 0, 0, 0.5);
+}
+.principal{
+    padding: 3em 0;
+    background-color: #FEFEFE;
+    width: 940px;
+    margin: 0 auto;
+}
+.principal p{
+    margin: 0 0 1em;
+}
+.principal strong{
+    font-weight: bold;
+}
+.principal em{
+    font-style: italic;
+}
+.mapa{
+    padding: 3em 0;
+    background: linear-gradient(#FEFEFE , rgb(163, 163, 163));
+}
+.mapa-conteudo{
+    width: 940px;
+    margin: 10px auto 0;
+}
+.mapa p{
+    margin: 0 0 2em;
+    text-align: center;
+    margin: 0 auto;
+}
+.beneficios{
+    padding: 3em;
+    background-color: rgb(163, 163, 163);
+    margin-bottom: 0;
+}
+.conteudo-beneficios{
+    width: 640px;
+    margin: 0 auto;
+}
+.lista-beneficios{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+.itens{
+    line-height: 1.5em;
+}
+.itens:before{
+    content:'✪'
+}
+.itens:nth-child(2n){
+    font-weight: bold;
+}
+.imagembeneficios{
+    width: 60%;
+    opacity: 1;
+    transition:500ms;
+    box-shadow: 5px 5px 20px #000000;
+}
+.imagembeneficios:hover{
+    opacity: 0.4;
+}
+
+@media screen and (max-width:480px) {
+    .cabecalho-inteiro, .caixa-rodape , .principal , .beneficios, .conteudo-beneficios , .mapa-conteudo{
+        width: auto;
+    }
+    .logo-oficina, nav{
+        width: 100%;
+    }
+    .principal p{
+        margin: 10px;
+    }
+    .lista-beneficios, .imagembeneficios{
+        width: 100%;
+    }
+}

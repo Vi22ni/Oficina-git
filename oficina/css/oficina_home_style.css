@@ -1,0 +1,51 @@
+body {
+	
+}
+
+#banner {
+	width: 100%;
+}
+
+.principal {
+	background: seashell;
+}
+
+.titulo-principal {
+	padding-left: 20px;
+}
+.titulo-centralizado {
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
+
+#fraseDeEfeito {
+	font-size: 20px;
+}
+
+em strong {
+	color: teal;
+}
+
+.itens {
+	font-style: italic;
+}
+
+.beneficios {
+	background: white;
+	padding: 20px;
+}
+
+ul {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	margin-right: 15%;
+}
+
+.imagembeneficios {
+	width: 30%;
+}
+
