@@ -51,6 +51,7 @@ table {
     font-family: 'Montserrat', sans-serif;
 }
 
+
 .cabecalho-inteiro {
     background: url('pexels-scott-webb-2117937.jpg');
     padding: 20px 0;
@@ -58,6 +59,18 @@ table {
     position: relative;
     background-repeat: no-repeat;
     background-size: 100%;
+}
+.body-container{
+    width: 100%;
+    width: 100%;
+    
+    
+}
+.serviços-container{
+    margin: 1% 0px;
+    width: 75%;
+    position: relative;
+    margin-left: 12.5%;
 }
 
 .caixa-rodape {
@@ -88,36 +101,56 @@ nav a {
 }
 nav a:hover{
     color:yellow;
+    font-size: 33px;
 }
 
 .serviços li {
     display: inline-block;
     text-align: center;
     width: 30%;
-    height: 500px;
+    height: auto;
     vertical-align: top;
-    margin: 0 1.5%;
-    padding: 30px 20px;
+    margin: 5% 1.5%;
+    padding: 30px 20px 40px;
     box-sizing: border-box;
-    border: 2px solid #000000;
-    border-radius: 10px;
+    border-radius: 2.5px;
 }
-.serviços li:hover{
-    border-color: rgb(193, 193, 38);
+.servico-pintura , .servico-martelinho , .servico-polimento {
+    width: 30%;
+    height: 30%;
 }
-.serviços li:active{
-    border-color: rgb(165, 165, 81);
+.servico-pintura {
+    background-image: linear-gradient(to right, #D3D3D3 , #FEFEFE);
 }
-.serviços li:hover h2{
-    font-size: 30px;
+.servico-pintura:hover{
+    background-image: linear-gradient(to right, #aeaeae , #FEFEFE);
 }
+.servico-polimento{
+    background-image: linear-gradient(to left, #D3D3D3 , #FEFEFE);
+}
+.servico-polimento:hover{
+    background-image: linear-gradient(to left, #aeaeae , #FEFEFE);
+}
+.servico-martelinho{
+    background-image: radial-gradient(#dddddd 30%, #FEFEFE 85%);
+}
+.servico-martelinho:hover{
+    background-image: radial-gradient(#aeaeae , #FEFEFE);
+}
+
 .titulo-servico{
     font-size: 22px;
     font-weight: bold;
 }
+.descricao-preco-servico-1-3, .descricao-preco-servico-2{
+    height:195px;
+}
 
 .descricao-servico{
-    font-size: 18px
+    margin: 2em 0;
+    font-size: 18px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .preco-servico{
@@ -127,17 +160,18 @@ nav a:hover{
     padding-bottom: 10px;
 }
 
-.servico-pintura , .servico-martelinho , .servico-polimento {
-    width: 30%;
-    height: 30%;
+.imagens-serviços{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 5%;
+
 }
 
-
 .imagem-pintura , .imagem-martelinho , .imagem-polimento {
-    width: 50%;
-    height: 50%;
+    width: 95%;
+    position: relative;
     border-radius: 4%;
-
 }
 footer{
     text-align: center; 
@@ -146,59 +180,124 @@ footer{
     margin: 0;
     color: white;
 }
-
-form{
-    margin: 40px 0;
+/* css da página de contato*/
+main{
+    background-image: linear-gradient( to bottom, #FEFEFE, #fafafa);
 }
-
-form label, form p, form  legend{
+.conteudo-container{
+    position: relative;
+    width: 65%;
+    margin: 0 0 0 12.5%;
+    padding: 3% 1% 6% 1%;
+}
+.form-container{
+    margin:0 0 5% 5%;
+    width: 90%;
+    position: relative;
+    height: auto;
+    border: none;
+    border-bottom: 0.75px solid black;
+    background-image: linear-gradient( to bottom, #e7e7e7, #FEFEFE);
+}
+.primeira-parte-conteudo, .segunda-parte-conteudo{
+    margin: 2% 0 2% 6.25%;
+    display: inline-block;
+    width: 40%;
+    height: 502.400px;
+    vertical-align: top;
+    box-sizing: border-box;
+    ;
+    padding: 1%;
+}
+.lbl-ipt-dados, .lbl-ipt-dados, form p, form  legend{
     display: block;
-    font-size: 20px;
-    margin: 0 0 10px;
+    font-size: 22px;
+    margin: 0 0 10px 10px;
+    font-weight: bold;
+    transition: 400ms;
 }
+.lbl-ipt-dados:hover, .lbl-ipt-dados:hover, form p:hover, form  legend:hover{
+    color: rgb(121, 121, 121);
+}
+
 .ipt-padrao{
     display: block;
     margin: 0 0 20px;
     padding: 10px 25px;
-    width: 50%;
+    width: 82%;
+    border: 0.5px solid #ffffff;
+    border-radius: 2.5px;
+}
+.ipt-padrao:hover{
+    background-color: #ffffff;
+    border: 0.5px solid #b5b5b5;
+}
+.form-select, .form-radio, .checkbox, .enviar{
+    display: block;
 }
 
-.checkbox{
-    margin: 20px 0;
+.form-radio, .form-select{
+    margin: 0 0 15% 0;
+}
+form legend{
+    margin: 0 0 7.5% 0;
+}
+.lbl-radio-option-select{
+    margin: 10px 0 10px 10px;
+    transition: 300ms;
+}
+.lbl-radio-option-select:hover{
+    font-weight: bold;
+    color: rgb(218, 179, 5);
+
+}
+form select{
+    font-size: 16px;
 }
 
 .enviar{
-    width: 40%;
+    margin: 22% 0 33% 12.5% ;
+    width: 75%;
     padding: 15px 0;
-    background-color: orange;
     color:#000000;
     font-weight: bold;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
-    border-bottom: 1px solid black;
-    transition: 1s all;
+    border-radius: 2.5px;
+    transition: 333ms all;
     cursor: pointer;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 241, 204);
+    background-color: rgb(52, 52, 52);
 }
 
 .enviar:hover{
-    background-color: rgb(255, 225, 0);
-    transform: scale(1.1);
-
+    color: rgb(208, 170, 0);
+    border: 1px solid rgb(218, 179, 5);
+    background-color: rgb(118, 118, 118);
 }
 
 table{
-    margin: 20px 40px
+    text-align: center;
+    position: relative;
+    left:35%;
+    width: 30%;
+    
 }
 table thead{
-    background-color: darkorange;
+    background-color: rgb(255, 217, 0);
     color: black;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 18px;
+    border: 1px solid black;
 }
 
 table td, th{
     padding: 10px 15px;
     border: 1px solid black;
+}
+table td:hover, th:hover{
+    font-weight: bold;
 }
 
 /*css da página Home*/
@@ -233,7 +332,7 @@ table td, th{
 }
 .mapa{
     padding: 3em 0;
-    background: linear-gradient(#FEFEFE , rgb(163, 163, 163));
+    background: linear-gradient(#FEFEFE , rgb(204, 204, 204));
 }
 .mapa-conteudo{
     width: 940px;
@@ -246,7 +345,7 @@ table td, th{
 }
 .beneficios{
     padding: 3em;
-    background-color: rgb(163, 163, 163);
+    background-color: rgb(204, 204, 204);
     margin-bottom: 0;
 }
 .conteudo-beneficios{
@@ -289,5 +388,30 @@ table td, th{
     }
     .lista-beneficios, .imagembeneficios{
         width: 100%;
+    }
+    .serviços li{
+        width: auto;
+    }
+    .descricao-preco-servico-1-3{
+        height:160px;
+    }
+    .descricao-preco-servico-2{
+        height:275px;
+    }
+    .primeira-parte-conteudo, .segunda-parte-conteudo{
+        width: auto;
+    }
+    .ipt-padrao{
+        width: 65%;
+    }
+    .lbl-ipt-dados, .lbl-ipt-dados, form p, form  legend{
+        margin: 0 0 10px 0;
+    }
+    table{
+        text-align: center;
+        position: relative;
+        left:15%;
+        width: 50%;
+        
     }
 }

@@ -1,98 +1,113 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato</title>
-    <link rel='stylesheet' href='css/oficina_store_style.css'>
-</head>
+<html lang="pt-br"> 
+	<head>
+		<meta charset="UTF-8">
+		<meta name='viewport' content='width=device-width'>
+		<title> Serviços </title>
+		<link rel="stylesheet" href="css/oficina_store_style.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	</head>
 <body>
-    <header>
+    <div class='cabecalho-inteiro'>
         <div class="caixa-rodape">
-            <h1><img src="css/logo_oficina.png" alt='Logo da Oficina'> </h1>
+            <img class='logo-oficina' src="css/logo_oficina.png" alt='Imagem carro, logo oficina' title='imagem de um carro desenhado, é a logo da oficina'>
 
             <nav>
-                <ul>
+                <ul class='nav-lista'>
                     <li><a href="oficina_home.html">Home</a></li>
                     <li><a href="oficina_store.html">Serviços</a></li>
                     <li><a href="contato_oficina.html">Contato</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
+    </div>
     <main>
-        <form>
-            <label for='ipt-nome'>Nome e sobrenome</label>
-            <input type='text' id='ipt-nome' class='ipt-padrao' required>
-
-            <label for='ipt-email'>E-mail</label>
-            <input type='email' id='ipt-email' class='ipt-padrao' required placeholder='seuemail@domínio.com'>
-
-            <label for='ipt-telefone'>Telefone</label>
-            <input type='tel' id='ipt-telefone' class='ipt-padrao' required placeholder='(xx) xxxxx-xxx'>
-
-            <label for='mensagem'>Mensagem</label>
-            <textarea id='mensagem' cols='70' rows='10' class='ipt-padrao' required></textarea>
-
-            <fieldset class='form-radio'>
-                <legend>Como prefere o nosso contato?</legend>
-                <label for='radio-email'><input type='radio' name='contato' id='radio-email' value='email'>E-mail</label>
-
-                <label for='radio-telefone'><input type='radio' name='contato' id='radio-telefone' value='telefone'>Telefone</label>
+        <div class='conteudo-container'>
+            <h1 class='titulo-principal'> Fale conosco! </h1>
+            <div class='form-container'>
+                    <div class='primeira-parte-conteudo'>
+                        <form class='formulario-contato'>
+                            <label class='lbl-ipt-dados' for='ipt-nome'>Nome completo</label>
+                            <input type='text' id='ipt-nome' class='ipt-padrao' required placeholder="nome e sobrenome">
                 
-                <label for='radio-whatsapp'><input type='radio' name='contato' id='radio-whatsapp' value='whatsapp' checked>WhatsApp</label>
+                            <label class='lbl-ipt-dados' for='ipt-email'>E-mail</label>
+                            <input type='email' id='ipt-email' class='ipt-padrao' required placeholder='seuemail@domínio.com'>
                 
-            </fieldset>
-
-            <fieldset class='form-select'>
-                <legend>Qual horário prefere ser atendido?</legend>
-                <select>
-                    <option value='manha'>Manhã</option>
-                    <option value='tarde'>Tarde</option>
-                    <option value='noite'>Noite</option>
-                </select>
-            </fieldset>
-
-            <label class='checkbox'><input type='checkbox' checked>Gostaria de receber nossas novidades por e-mail? </label>
-
-            <input type='submit' value='Enviar formulário' class='enviar'>
-        </form>
-        <table>
-            <thead>
-                <tr>
-                    <th>Dia</th>
-                    <th>Horário</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Segunda</td>
-                    <td>7h - 17:00</td>
-                </tr>
-                <tr>
-                    <td>Terça</td>
-                    <td>7h - 17:00</td>
-                </tr>
-                <tr>
-                    <td>Quarta</td>
-                    <td>7h - 17:00</td>
-                </tr>
-                <tr>
-                    <td>Quinta</td>
-                    <td>7h - 17:00</td>
-                </tr>
-                <tr>
-                    <td>Sexta</td>
-                    <td>7h - 17:00</td>
-                </tr>
-                <tr>
-                    <td>Sábado</td>
-                    <td>8h30 - 11:30</td>
-                </tr>
-            </tbody>
+                            <label class='lbl-ipt-dados' for='ipt-telefone'>Telefone</label>
+                            <input type='tel' id='ipt-telefone' class='ipt-padrao' required placeholder='(xx) xxxxx-xxx'>
+                
+                            <label class='lbl-ipt-dados' for='mensagem'>Mensagem</label>
+                            <textarea id='mensagem' cols='70' rows='10' class='ipt-padrao' required placeholder="escreva sua mensagem"></textarea>
+                        </form>
+                    </div>
+                    <div class='segunda-parte-conteudo'>
+                        <form class='formulario-contato'>
+                            <fieldset class='form-radio'>
+                                <legend>Como prefere o nosso contato?</legend>
+                                <label for='radio-email' class='lbl-radio-option-select'><input type='radio' name='contato' id='radio-email' value='email'>E-mail</label>
+                
+                                <label for='radio-telefone' class='lbl-radio-option-select'><input type='radio' name='contato' id='radio-telefone' value='telefone'>Telefone</label>
+                                
+                                <label for='radio-whatsapp' class='lbl-radio-option-select'><input type='radio' name='contato' id='radio-whatsapp' value='whatsapp' checked>WhatsApp</label>
+                                
+                            </fieldset>
+                
+                            <fieldset class='form-select'>
+                                <legend>Qual horário prefere ser atendido?</legend>
+                                <select class='lbl-radio-option-select'>
+                                    <option value='manha' >Manhã</option>
+                                    <option value='tarde' >Tarde</option>
+                                    <option value='noite' >Noite</option>
+                                </select>
+                            </fieldset>
+                
+                            <label class='lbl-radio-option-select'><input type='checkbox' checked>Gostaria de receber nossas novidades por e-mail? </label>
+                
+                            <input type='submit' value='Enviar formulário' class='enviar'>
+                        </form>
+                    </div>
+            </div>
+            <h1 class='titulo-principal'> Horário de Funcionamento</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dia</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda</td>
+                        <td>7h - 17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Terça</td>
+                        <td>7h - 17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Quarta</td>
+                        <td>7h - 17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Quinta</td>
+                        <td>7h - 17:00</td>
+                    </tr>
+                    <tr>
+                       <td>Sexta</td>
+                        <td>7h - 17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sábado</td>
+                        <td>8h30 - 11:30</td>
+                    </tr>
+                </tbody>
+            </table>
             
-        </table>
+        </div>
+        
     </main>
     <footer> 
         <p>Copyright Guga Pinturas - 2021</p>

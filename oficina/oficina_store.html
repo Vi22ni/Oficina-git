@@ -1,83 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br"> 
-
 	<head>
 		<meta charset="UTF-8">
-		<title> Serviços - Guga Lataria e Pintura </title>
+		<meta name='viewport' content='width=device-width'>
+		<title> Serviços </title>
 		<link rel="stylesheet" href="css/oficina_store_style.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 	</head>
 
 	<body>
-		<header>
+		<div class='cabecalho-inteiro'>
 			<div class="caixa-rodape">
-				<h1><img src="css/logo_oficina.png"> </h1>
+				<img class='logo-oficina' src="css/logo_oficina.png" alt='Imagem carro, logo oficina' title='imagem de um carro desenhado, é a logo da oficina'>
 
 				<nav>
-					<ul>
+					<ul class='nav-lista'>
 						<li><a href="oficina_home.html">Home</a></li>
 						<li><a href="oficina_store.html">Serviços</a></li>
 						<li><a href="contato_oficina.html">Contato</a></li>
 					</ul>
 				</nav>
 			</div>
-		</header>
-
-		<main>
-			<ul class="serviços">
-				<li class="servico-pintura">
-					<h2 class='titulo-servico'>
-						<br>
-						Reparo + Pintura
-						<br><br>
-					</h2>
-					<img src="css/pintura.jpg" class="imagem-pintura">
-					<p class='descricao-servico'>
-						<br><br>
-						Seu carro com pintura lisa, brilhosa e cor com acerto!
-					</p>
-					<p class='preco-servico'>
-						<br><br>
-						R$ 400,00 por peça
-					</p>
-				</li>
-				<li class="servico-martelinho">
-					<h2 class='titulo-servico'>
-						<br>
-						Martelinho de Ouro*
-						<br><br>
-					</h2>
-					<img src="css/martelinho.jpg" class="imagem-martelinho">
-					<p class='descricao-servico'>
-						<br>
-						Pequenos amassados que podem ser reparados sem necessidade da aplicação de produtos!
-						<br>
-						<br>
-						*faça um orçamento presencial para averiguar se é a melhor opção para o seu carro.
-					</p>
-					<p class='preco-servico'>
-						<br>
-						R$ 300,00 por amassado
-					</p>
-				</li>
-				<li  class="servico-polimento">
-					<h2 class='titulo-servico'>
-						<br>
-						Polimento
-						<br><br>
-					</h2>
-					<img src="css/polimento.jpg" class="imagem-polimento">
-					<p class='descricao-servico'>
-						<br><br>
-						A melhor opção para pinturas com apenas defeitos superficiais que merecem o brilho 
-						<br>
-						e a limpeza que apenas a nossa oficina oferece!
-					</p>
-					<p class='preco-servico'>
-						<br><br>R$ 200,00 por peça
-					</p>
-				</li>
-			</ul>
-		</main>
+		</div>
+		<div class='body-container'>
+			<main>
+				<div class='serviços-container'>
+					<ul class="serviços">
+						<li class="servico-pintura">
+							<h2 class='titulo-servico'>
+								Reparo + Pintura
+							</h2>
+							<div class='imagens-serviços'>
+								<img src="css/pintura.jpg" class="imagem-pintura" alt='imagem pintura automotiva' title='Imagem mostra peça de um carro sendo pintada'>
+							</div>
+							
+							<div class='descricao-preco-servico-1-3'>
+								<p class='descricao-servico'>
+									Seu carro com pintura lisa, brilhosa e cor com acerto!
+								</p>
+								<p class='preco-servico'>
+									R$ 400,00 por peça
+								</p>
+							</div>
+						</li>
+						<li class="servico-martelinho">
+							<h2 class='titulo-servico'>
+								Martelinho de Ouro*
+							</h2>
+							<div class='imagens-serviços'>
+								<img src="css/martelinho.jpg" class="imagem-martelinho" alt='imagem martelinho de ouro' title='Imagem de um martelo próximo ao carro'>
+							</div>
+							<div class='descricao-preco-servico-2'>
+								<p class='descricao-servico'>
+									Pequenos amassados que podem ser reparados sem necessidade da aplicação de tinta ou massa poliéster!<br><br>
+									*faça um orçamento presencial para averiguar se é a melhor opção para o seu carro.
+								</p>
+								<p class='preco-servico'>
+									R$ 300,00 por amassado
+								</p>
+							</div>
+							
+						</li>
+						<li  class="servico-polimento">
+							<h2 class='titulo-servico'>
+								Polimento
+							</h2>
+							<div class='imagens-serviços'>
+								<img src="css/polimento.jpg" class="imagem-polimento" alt='Imagem carro polido' title='Imagem de um carro sendo polido'>
+							</div>
+							<div class='descricao-preco-servico-1-3'>
+								<p class='descricao-servico'>
+									A melhor opção para pinturas com apenas defeitos superficiais que merecem o brilho <br>
+									e a limpeza que apenas a nossa oficina oferece!
+								</p>
+								<p class='preco-servico'>
+									R$ 200,00 por peça
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+			</main>
+			
+		</div>
+		
 
 		<footer> 
 			<p>Copyright Guga Pinturas - 2021</p>
