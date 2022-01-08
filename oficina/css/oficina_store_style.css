@@ -132,7 +132,7 @@ nav a:hover{
     background-image: linear-gradient(to left, #aeaeae , #FEFEFE);
 }
 .servico-martelinho{
-    background-image: radial-gradient(#dddddd 30%, #FEFEFE 85%);
+    background-image: radial-gradient(#e7e7e7 30%, #FEFEFE 85%);
 }
 .servico-martelinho:hover{
     background-image: radial-gradient(#aeaeae , #FEFEFE);
@@ -187,7 +187,7 @@ main{
 .conteudo-container{
     position: relative;
     width: 65%;
-    margin: 0 0 0 12.5%;
+    margin: 0 0 0 17.5%;
     padding: 3% 1% 6% 1%;
 }
 .form-container{
@@ -285,7 +285,7 @@ table{
     
 }
 table thead{
-    background-color: rgb(255, 217, 0);
+    background-color: rgb(221, 188, 0);
     color: black;
     font-weight: bolder;
     font-size: 18px;
