@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do ADM</title>
+</head>
+<body>
+    <link rel="stylesheet" href="css/oficina_store_style.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	</head>
+<body>
+    <div class='cabecalho-inteiro'>
+        <div class="caixa-rodape">
+            <img class='logo-oficina' src="css/logo_oficina.png" alt='Imagem carro, logo oficina' title='imagem de um carro desenhado, é a logo da oficina'>
+
+            <nav>
+                <ul class='nav-lista'>
+                    <li><a href="oficina_home.html">Home</a></li>
+                    <li><a href="oficina_store.html">Serviços</a></li>
+                    <li><a href="contato_oficina.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <main>
+        <div class='conteudo-container'>
+            <h1 class='titulo-principal'>Contatos</h1>
+            <div class='form-container2'>
+                    <div class='primeira-parte-conteudo'>
+                        <h class="tituloSecundario-adm">Usuários</h>
+                        <div class="procurarUsuarios-adm">
+                            <input type='text' class="iptPesquisar-adm" placeholder="Digite um nome">
+                            <button type="button" class="btnPesquisar-adm">Procurar</button>
+                            <div class="nomesUsuarios-adm">
+                                <div class="btnDrop-adm">
+                                    <p id="btnNome-adm">Agostinho Carrara Washington Luciano Pereira Reis</p>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button>
+                                </div>
+                                <div class="btnDrop-adm">
+                                    <p id="btnNome-adm">Agostinho Carrara</p>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button>
+                                    
+                                </div>
+                                <div class="btnDrop-adm">
+                                    <p id="btnNome-adm">Agostinho Carrara</p>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
+                                    <button type="button" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class='segunda-parte-conteudo'>
+                        <h class="tituloSecundario-adm">Dados do Usuário</h>
+                        <div class="dadosUsuarios-adm">
+                            <h class="tituloDados-adm">Nome: </h>
+                            <p class="pLista-adm" id="pNome-adm">Vinicius dos Santos Bueno</p>
+                            <h class="tituloDados-adm">Email: </h>
+                            <p class="pLista-adm" id="pEmail-adm">vinicius22bueno@gmail.com</p>
+                            <h class="tituloDados-adm">Telefone:</h>
+                            <p class="pLista-adm" id="pTelefone-adm">48998227104</p>
+                            <h class="tituloDados-adm">Tipo de contato: </h>
+                            <p class="pLista-adm" id="pLista-adm">Whatsapp</p>
+                            <h class="tituloDados-adm">Período para contato: </h>
+                            <p class="pLista-adm" id="pLista-adm">Manhã</p>
+                            <h class="tituloDados-adm">Gostaria de receber emails? </h>
+                            <p class="pLista-adm" id="pLista-adm">Sim</p>
+                            <h class="tituloDados-adm">Mensagem:</h>
+                            <textarea class="pLista-adm" id="pMensagem-adm" readonly ></textarea>
+                        </div>
+                        
+                    </div>
+            </div>
+            
+        </div>
+        
+    </main>
+    <footer> 
+        <p>Copyright Guga Pinturas - 2021</p>
+    </footer>
+
+    <script href="js/crud.js"></script>
+</body>
+    
+</body>
+</html>
