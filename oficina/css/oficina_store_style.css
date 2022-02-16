@@ -440,10 +440,11 @@ table td:hover, th:hover{
     display: inline-block;
 }
 .btnPesquisar-adm{
-    width: 25%;
+    width: 20%;
     margin-left: 5%;   
-    padding: 10px;
-    font-size:12px;
+    padding: 10px 0;
+    padding-right: 1px;
+    font-size:10px;
     font-weight: bold;
     color:#ffffff;
     background-color: #2a8f91;
@@ -524,6 +525,9 @@ table td:hover, th:hover{
     padding: 15px;
     border-radius: 2px;
     
+}
+.dadosUsuariosEdit-adm{
+    display: none;
 }
 .pLista-adm, .tituloDados-adm{
     margin:8% 0;

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=device-width'>
-		<title> Serviços </title>
+		<title> Contato </title>
 		<link rel="stylesheet" href="css/oficina_store_style.css">
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +51,7 @@
                 
                                 <label for='radio-telefone' class='lbl-radio-option-select'><input type='radio' name='contato' id='radio-telefone' value='telefone'>Telefone</label>
                                 
-                                <label for='radio-whatsapp' class='lbl-radio-option-select'><input type='radio' name='contato' id='radio-whatsapp' value='whatsapp' checked>WhatsApp</label>
+                                <label for='radio-whatsapp' class='lbl-radio-option-select'><input type='radio' name='contato' id='radio-whatsapp' value='whatsapp'>WhatsApp</label>
                                 
                             </fieldset>
                 
@@ -64,9 +64,9 @@
                                 </select>
                             </fieldset>
                 
-                            <label class='lbl-radio-option-select'><input type='checkbox' checked>Gostaria de receber nossas novidades por e-mail? </label>
+                            <label class='lbl-radio-option-select'><input type='checkbox' name='checkEmail 'id='checkEmail' value="true">Gostaria de receber nossas novidades por e-mail? </label>
                 
-                            <input type='submit' value='Enviar formulário' class='enviar'>
+                            <button onclick="storeUserData()" class='enviar'>Enviar</button>
                         </form>
                     </div>
             </div>
@@ -113,6 +113,6 @@
         <p>Copyright Guga Pinturas - 2021</p>
     </footer>
 
-    <script href="js/crud.js"></script>
+    <script src="js/crud.js"></script>
 </body>
 </html>

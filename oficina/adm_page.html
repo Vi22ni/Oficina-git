@@ -34,8 +34,9 @@
                     <div class='primeira-parte-conteudo'>
                         <h class="tituloSecundario-adm">Usuários</h>
                         <div class="procurarUsuarios-adm">
-                            <input type='text' class="iptPesquisar-adm" placeholder="Digite um nome">
+                            <input type='text' class="iptPesquisar-adm" id='iptPesquisar-adm'placeholder="Digite um nome">
                             <button type="button" class="btnPesquisar-adm">Procurar</button>
+                            <button type="button" onclick="addValueToHTML()">Go</button>
                             <div class="nomesUsuarios-adm">
                                 <div class="btnDrop-adm">
                                     <p id="btnNome-adm">Agostinho Carrara Washington Luciano Pereira Reis</p>
@@ -64,19 +65,50 @@
                         <h class="tituloSecundario-adm">Dados do Usuário</h>
                         <div class="dadosUsuarios-adm">
                             <h class="tituloDados-adm">Nome: </h>
-                            <p class="pLista-adm" id="pNome-adm">Vinicius dos Santos Bueno</p>
+                            <p class="pLista-adm" id="pNome-adm"></p>
                             <h class="tituloDados-adm">Email: </h>
                             <p class="pLista-adm" id="pEmail-adm">vinicius22bueno@gmail.com</p>
                             <h class="tituloDados-adm">Telefone:</h>
                             <p class="pLista-adm" id="pTelefone-adm">48998227104</p>
                             <h class="tituloDados-adm">Tipo de contato: </h>
-                            <p class="pLista-adm" id="pLista-adm">Whatsapp</p>
+                            <p class="pLista-adm" id="pTipoContato-adm">Whatsapp</p>
                             <h class="tituloDados-adm">Período para contato: </h>
-                            <p class="pLista-adm" id="pLista-adm">Manhã</p>
+                            <p class="pLista-adm" id="pPeriodo-adm">Manhã</p>
                             <h class="tituloDados-adm">Gostaria de receber emails? </h>
-                            <p class="pLista-adm" id="pLista-adm">Sim</p>
+                            <p class="pLista-adm" id="pEmailCheck-adm">Sim</p>
                             <h class="tituloDados-adm">Mensagem:</h>
-                            <textarea class="pLista-adm" id="pMensagem-adm" readonly ></textarea>
+                            <textarea class="pLista-adm" id="textMensagem-adm" readonly ></textarea>
+                        </div>
+                        
+                            
+                        <div class="dadosUsuariosEdit-adm">
+                            <h class="tituloDados-adm">Nome: </h>
+                            <input type='text' class="iptLista-adm" id="iptNome-adm">
+                            <h class="tituloDados-adm">Email: </h>
+                            <input type='email' class="iptLista-adm" id="iptEmail-adm">
+                            <h class="tituloDados-adm">Telefone:</h>
+                            <input type='tel' class="iptLista-adm" id="iptTelefone-adm">
+                            <fieldset class='form-radio'>
+                                <legend>Como prefere o nosso contato?</legend>
+                                <label for='radio-email' class='lbl-radio-option-select'><input type='radio' name='contato' id='radioEdit-email' value='email'>E-mail</label>
+                
+                                <label for='radio-telefone' class='lbl-radio-option-select'><input type='radio' name='contato' id='radioEdit-telefone' value='telefone'>Telefone</label>
+                                
+                                <label for='radio-whatsapp' class='lbl-radio-option-select'><input type='radio' name='contato' id='radioEdit-whatsapp' value='whatsapp' checked>WhatsApp</label>
+                                
+                            </fieldset>
+                
+                            <fieldset class='form-select'>
+                                <legend>Qual horário prefere ser atendido?</legend>
+                                <select class='lbl-radio-option-select' id="slcEdit-horario">
+                                    <option value='manha' >Manhã</option>
+                                    <option value='tarde' >Tarde</option>
+                                    <option value='noite' >Noite</option>
+                                </select>
+                            </fieldset>
+                            <label class='lbl-radio-option-select'><input type='checkbox' id="checkEmailEdit" checked>Gostaria de receber nossas novidades por e-mail? </label>
+                            <h class="tituloDados-adm">Mensagem:</h>
+                            <textarea class="pLista-adm" id="textMensagemEdit-adm"></textarea>
                         </div>
                         
                     </div>
