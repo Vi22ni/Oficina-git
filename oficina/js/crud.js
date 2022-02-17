@@ -9,13 +9,13 @@ let contactTimeCourse = document.getElementById('slc-horario');
 //inputs tela adm
 let contactNameSearch = document.getElementById('iptPesquisar-adm');
 let searchIndex = '';
-let nameFormAdm = document.getElementById('pNome-adm');
-let emailFormAdm = document.getElementById('pEmail-adm');
-let telephoneFormAdm = document.getElementById('pTelefone-adm');
-let messageFormAdm = document.getElementById('textMensagem-adm');
-let contactTimeCourseAdm = document.getElementById('pPeriodo-adm');
-let contactEmailCheckAdm = document.getElementById('pEmailCheck-adm');
-let contactTypeSelectedAdm =  document.getElementById('pTipoContato-adm');
+let nameFormAdm = document.getElementById('iptNome-adm');
+let emailFormAdm = document.getElementById('iptEmail-adm');
+let telephoneFormAdm = document.getElementById('iptTelefone-adm');
+let messageFormAdm = document.getElementById('textMensagemEdit-adm');
+let contactTimeCourseAdm = document.getElementById('slcEdit-horario');
+let contactEmailCheckAdm = document.getElementById('checkEmailEdit-adm');
+let contactTypeSelectedAdm =  document.getElementsByName('contato');
 
 
 //dados do navegador
@@ -32,17 +32,15 @@ let contactEmailCheckArray = [];
 //funçao que guarda os dados do usuário
 
 function storeUserData(){
-        let contactEmailCheck = document.querySelector('#checkEmail').checked;
-        let contactTypeSelected =  document.querySelector('input[type=radio][name=contato]:checked').value;
+        var contactEmailCheck = document.querySelector('#checkEmail').checked;
+        var contactTypeSelected =  document.querySelector('input[type=radio][name=contato]:checked').value;
 
         // Pega LocalStorage  e armazena
         nameFormArray = JSON.parse(localStorage.getItem("user_name"));
         emailFormArray = JSON.parse(localStorage.getItem("user_email"));
         telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
         messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
-
         contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
-
         contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
         contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
     
@@ -105,148 +103,67 @@ function storeUserData(){
     
 }
 
-var el_down = document.getElementById("GFG_DOWN");
-var inputF = document.getElementById("id1");
-  
-function addValueToHTML() {
-    nameForm.value = "textValue";
-    emailForm.value = "textValue";
-    telephoneForm.value = "textValue";
-    messageForm.value = "textValue";
-    contactTimeCourse.value = "textValue";
-    contactEmailCheck.value = "textValue";
-    contactTypeSelected.value =  "textValue";
-    nameFormAdm.innerHTML = 
-            "'" + nameForm.value + "'";
-}
 
+var userNameIndex= 0;
 
-
-
-
-//apresenta os usuarios na adm
-
-function Listar(){
-
-    // Pega valores do LocalStorage (se tiver) e armazena
+function listUsers(){
+    
     nameFormArray = JSON.parse(localStorage.getItem("user_name"));
-    emailFormArray = JSON.parse(localStorage.getItem("user_email"));
-    telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
-    messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
-
-    contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
-
-    contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
-    contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
-
-    // Cria uma variável de string vazia para armazenar os dados da lista
-    let listData = '';
-
-    // Realiza um loop do tamanho dos vetores
+  
     for(i=0; i < nameFormArray.length; i++){
 
-      // Armazena na variável lista, os dados dos vetores 
-      listData = listData + nameFormArray[i] + " - " + senhas[i] + "<br>"
+      const nameList = document.querySelector('[data-list]');
+      let userName = nameFormArray[i];
+      userNameIndex = i;
+      const nameListItem= document.createElement('li');
+      nameListItem.classList.add('task');
+      const nameListItemContent = `<div class='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
+      <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
+      <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
+      <button type="button" onclick='addAndEditValueToHTML(${userNameIndex})' class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
+
+      nameListItem.innerHTML = nameListItemContent;
+      nameList.appendChild(nameListItem);
+
 
     }
 
-    // Mostra a lista na div centro
-    document.getElementById("baixo").innerHTML = lista
-
 }
 
-function Excluir(){
+listUsers();
 
-     // Pega valores do LocalStorage (se tiver) e armazena
-     nomes = JSON.parse(localStorage.getItem("cadastro_usuario"));
-     senhas = JSON.parse(localStorage.getItem("cadastro_senha"));
+function addAndEditValueToHTML(indice) {
+  nameFormArray = JSON.parse(localStorage.getItem("user_name"));
+  emailFormArray = JSON.parse(localStorage.getItem("user_email"));
+  telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
+  messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
+  contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
+  contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
+  contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
 
-    // Cria uma variável para armazenar a posição dos dados a serem excluídos 
-    let posicaoExcluir
+  nameFormAdm.value = nameFormArray[indice];
+  emailFormAdm.value = emailFormArray[indice];
+  telephoneFormAdm.value = telephoneFormArray[indice];
+  messageFormAdm.value= messageFormArray[indice];
+  contactTimeCourseAdm.value= contactTimeCourseArray[indice];
 
-    // Realiza um loop do tamanho dos vetores
-    for(i=0; i < nomes.length; i++){
+  if(contactTypeSelectedArray[indice] == 'whatsapp'){
+    let radioContactType =document.getElementById('radioEdit-whatsapp');
+    radioContactType.checked = true;
+  }else if( contactTypeSelectedArray[indice] == 'email'){
+    let radioContactType =document.getElementById('radioEdit-email');
+    radioContactType.checked = true;
+  }else{
+    let radioContactType =document.getElementById('radioEdit-telefone');
+    radioContactType.checked = true;
+  }
 
-      // Compara o valor do input de exclusão com o valor da posição atual do vetor
-      if(nomeExcluir.value == nomes[i]){
 
-        // Se existir um valor igual, armazena a posição
-        posicaoExcluir = i
-
-        // Utiliza a posição armazenada para excluir os dados
-        nomes.splice(posicaoExcluir, 1)
-        senhas.splice(posicaoExcluir, 1)
-
-        // Mostra mensagem de dados excluídos
-        alert("Usuário excluído!")
-
-        // Joga para o LocalStorage novamente
-        localStorage.setItem("cadastro_usuario", JSON.stringify(nomes))
-        localStorage.setItem("cadastro_senha", JSON.stringify(senhas))
-
-      }
-
-    }
-
-    // Limpa dados do input excluir
-    document.getElementById("excluir").value = ''
-
-}
-
-function Pesquisar(){
-
-    // Pega valores do LocalStorage (se tiver) e armazena
-    nomes = JSON.parse(localStorage.getItem("cadastro_usuario"));
-    senhas = JSON.parse(localStorage.getItem("cadastro_senha"));
-
-    // Cria uma variável ou flag para indicar que encontrou
-    let encontrou = 0
-
-    // Realiza um loop do tamanho dos vetores
-    for(i=0; i < nomes.length; i++){
-
-      // Compara o valor do input de exclusão com o valor da posição atual do vetor
-      if(nomePesquisar.value == nomes[i]){
-
-        // Se encontroum altera a variável flag para 1
-        encontrou = 1
-        // Armazena na variável posicaoPesquisar, a posição encontrada
-        posicaoPesquisar = i
-      
-      }
-    
-    }
-
-    // Se encontrou  
-    if (encontrou == 1){
-
-        // Pega os valores da posição onde foi encontrado e joga pra os inputs
-        document.getElementById("userPesquisa").value = nomes[posicaoPesquisar]
-        document.getElementById("passPesquisa").value = senhas[posicaoPesquisar] 
-
-    // Senão
-    }else{
-
-        // Mostra mensagem de usuário inexistente
-        alert("Usuário não encontrado!")
-        // Limpa dados do input excluir
-        document.getElementById("userPequisa").value = ''
-
-    }  
-    
-}
-
-function Atualizar(){
-
-    // Remove os dados da posição encontrada e joga os novos dados
-    nomes.splice(posicaoPesquisar, 1, nomePesquisar.value)
-    senhas.splice(posicaoPesquisar, 1, senhaPesquisar.value)
-        
-    // Joga para o LocalStorage o vetor atualizado
-    localStorage.setItem("cadastro_usuario", JSON.stringify(nomes))
-    localStorage.setItem("cadastro_senha", JSON.stringify(senhas))
-
-    // Mensagem de dados atualizados
-    alert("Dados atualizados!")
-
+  if(contactEmailCheckArray[indice] === true){
+    let checkboxContactEmail = document.getElementById('checkEmailEdit');
+    checkboxContactEmail.checked = true;
+  }else{
+    let checkboxContactEmail = document.getElementById('checkEmailEdit');
+    checkboxContactEmail.checked = false;
+  }
 }

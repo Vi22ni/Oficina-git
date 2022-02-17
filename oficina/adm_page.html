@@ -36,27 +36,9 @@
                         <div class="procurarUsuarios-adm">
                             <input type='text' class="iptPesquisar-adm" id='iptPesquisar-adm'placeholder="Digite um nome">
                             <button type="button" class="btnPesquisar-adm">Procurar</button>
-                            <button type="button" onclick="addValueToHTML()">Go</button>
                             <div class="nomesUsuarios-adm">
-                                <div class="btnDrop-adm">
-                                    <p id="btnNome-adm">Agostinho Carrara Washington Luciano Pereira Reis</p>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button>
-                                </div>
-                                <div class="btnDrop-adm">
-                                    <p id="btnNome-adm">Agostinho Carrara</p>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button>
-                                    
-                                </div>
-                                <div class="btnDrop-adm">
-                                    <p id="btnNome-adm">Agostinho Carrara</p>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
-                                    <button type="button" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button>
-                                </div>
+                                <ul class="listaDeUsuarios-adm" data-list>
+                                </ul>
                             </div>
                         </div>
                         
@@ -90,11 +72,11 @@
                             <input type='tel' class="iptLista-adm" id="iptTelefone-adm">
                             <fieldset class='form-radio'>
                                 <legend>Como prefere o nosso contato?</legend>
-                                <label for='radio-email' class='lbl-radio-option-select'><input type='radio' name='contato' id='radioEdit-email' value='email'>E-mail</label>
+                                <label for='radio-email' class='lbl-radio-option-select'><input type='radio' name='contatoEdit' id='radioEdit-email' value='email'>E-mail</label>
                 
-                                <label for='radio-telefone' class='lbl-radio-option-select'><input type='radio' name='contato' id='radioEdit-telefone' value='telefone'>Telefone</label>
+                                <label for='radio-telefone' class='lbl-radio-option-select'><input type='radio' name='contatoEdit' id='radioEdit-telefone' value='telefone'>Telefone</label>
                                 
-                                <label for='radio-whatsapp' class='lbl-radio-option-select'><input type='radio' name='contato' id='radioEdit-whatsapp' value='whatsapp' checked>WhatsApp</label>
+                                <label for='radio-whatsapp' class='lbl-radio-option-select'><input type='radio' name='contatoEdit' id='radioEdit-whatsapp' value='whatsapp'>WhatsApp</label>
                                 
                             </fieldset>
                 
@@ -106,7 +88,7 @@
                                     <option value='noite' >Noite</option>
                                 </select>
                             </fieldset>
-                            <label class='lbl-radio-option-select'><input type='checkbox' id="checkEmailEdit" checked>Gostaria de receber nossas novidades por e-mail? </label>
+                            <label class='lbl-radio-option-select'><input type='checkbox' id="checkEmailEdit">Gostaria de receber nossas novidades por e-mail? </label>
                             <h class="tituloDados-adm">Mensagem:</h>
                             <textarea class="pLista-adm" id="textMensagemEdit-adm"></textarea>
                         </div>
@@ -121,7 +103,7 @@
         <p>Copyright Guga Pinturas - 2021</p>
     </footer>
 
-    <script href="js/crud.js"></script>
+    <script src="js/crud.js"></script>
 </body>
     
 </body>

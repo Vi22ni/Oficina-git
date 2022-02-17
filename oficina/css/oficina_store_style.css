@@ -453,6 +453,27 @@ table td:hover, th:hover{
 .btnPesquisar-adm:hover{
     cursor: pointer;
 }
+.btnAtualizar-adm{
+    width: 20%;
+    margin-left: 5%;   
+    padding: 10px 0;
+    padding-right: 1px;
+    font-size:10px;
+    font-weight: bold;
+    color:#ffffff;
+    background-color: #2a9144;
+    border:1px #000000 solid;
+}
+.btnAtualizar-adm:hover{
+    cursor: pointer;
+}
+.listaDeUsuarios-adm{
+    height: 500px;
+    overflow-y: scroll;
+}
+.pNomeIndex{
+    display: none;
+}
 
 .btnDrop-adm{
     margin: 5% 0;
@@ -524,11 +545,10 @@ table td:hover, th:hover{
     background-color: rgba(241,243,243,1);
     padding: 15px;
     border-radius: 2px;
+    display: none;
     
 }
-.dadosUsuariosEdit-adm{
-    display: none;
-}
+
 .pLista-adm, .tituloDados-adm{
     margin:8% 0;
     display: block;
