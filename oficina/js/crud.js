@@ -167,3 +167,42 @@ function addAndEditValueToHTML(indice) {
     checkboxContactEmail.checked = false;
   }
 }
+
+function updateUserData(indice) {
+  contactEmailCheckAdm = document.querySelector('#checkEmailEdit').checked;
+  contactTypeSelectedAdm =  document.querySelector('input[type=radio][name=contatoEdit]:checked').value;
+  nameFormAdm = document.getElementById('iptNome-adm');
+  emailFormAdm = document.getElementById('iptEmail-adm');
+  telephoneFormAdm = document.getElementById('iptTelefone-adm');
+  messageFormAdm = document.getElementById('textMensagemEdit-adm');
+  contactTimeCourseAdm = document.getElementById('slcEdit-horario');
+
+
+
+  nameFormArray = JSON.parse(localStorage.getItem("user_name"));
+  emailFormArray = JSON.parse(localStorage.getItem("user_email"));
+  telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
+  messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
+  contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
+  contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
+  contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
+
+
+
+  nameFormArray.splice(indice,1, nameFormAdm.value)
+  emailFormArray.splice(indice,1, emailFormAdm.value)
+  telephoneFormArray.splice(indice,1, telephoneFormAdm.value)
+  messageFormArray.splice(indice,1, messageFormAdm.value)
+  contactTypeSelectedArray.splice(indice,1, contactTypeSelectedAdm)
+  contactTimeCourseArray.splice(indice,1, contactTimeCourseAdm.value)
+  contactEmailCheckArray.splice(indice,1, contactEmailCheckAdm)
+
+  localStorage.setItem('user_name', JSON.stringify(nameFormArray));
+  localStorage.setItem('user_email', JSON.stringify(emailFormArray));
+  localStorage.setItem('user_tel', JSON.stringify(telephoneFormArray));
+  localStorage.setItem('user_msg', JSON.stringify(messageFormArray));
+  localStorage.setItem('user_contactType', JSON.stringify(contactTypeSelectedArray));
+  localStorage.setItem('user_timeCourse', JSON.stringify(contactTimeCourseArray));
+  localStorage.setItem('user_emailCheck', JSON.stringify(contactEmailCheckArray));
+
+}
