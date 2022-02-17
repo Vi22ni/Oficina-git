@@ -545,10 +545,12 @@ table td:hover, th:hover{
     background-color: rgba(241,243,243,1);
     padding: 15px;
     border-radius: 2px;
-    display: none;
+    display:none;
     
 }
-
+.dadosUsuariosEdit-adm{
+    display: none;
+}
 .pLista-adm, .tituloDados-adm{
     margin:8% 0;
     display: block;

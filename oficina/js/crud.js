@@ -119,8 +119,8 @@ function listUsers(){
       nameListItem.classList.add('task');
       const nameListItemContent = `<div class='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
       <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
-      <button type="button" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
-      <button type="button" onclick='addAndEditValueToHTML(${userNameIndex})' class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
+      <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
+      <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
 
       nameListItem.innerHTML = nameListItemContent;
       nameList.appendChild(nameListItem);
@@ -132,40 +132,92 @@ function listUsers(){
 
 listUsers();
 
-function addAndEditValueToHTML(indice) {
-  nameFormArray = JSON.parse(localStorage.getItem("user_name"));
-  emailFormArray = JSON.parse(localStorage.getItem("user_email"));
-  telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
-  messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
-  contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
-  contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
-  contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
+function readAndUpdateCRUD(indice, screenType) {
+  if(screenType == 'update'){
+    var updateDiv = document.getElementById('divUserDataUpdate');
+    updateDiv.style.display= 'block';
+    var updateDiv = document.getElementById('divUserDataRead');
+    updateDiv.style.display= 'none';
+    nameFormArray = JSON.parse(localStorage.getItem("user_name"));
+    emailFormArray = JSON.parse(localStorage.getItem("user_email"));
+    telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
+    messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
+    contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
+    contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
+    contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
+  
+    nameFormAdm.value = nameFormArray[indice];
+    emailFormAdm.value = emailFormArray[indice];
+    telephoneFormAdm.value = telephoneFormArray[indice];
+    messageFormAdm.value= messageFormArray[indice];
+    contactTimeCourseAdm.value= contactTimeCourseArray[indice];
+  
+    if(contactTypeSelectedArray[indice] == 'whatsapp'){
+      let radioContactType =document.getElementById('radioEdit-whatsapp');
+      radioContactType.checked = true;
+    }else if( contactTypeSelectedArray[indice] == 'email'){
+      let radioContactType =document.getElementById('radioEdit-email');
+      radioContactType.checked = true;
+    }else{
+      let radioContactType =document.getElementById('radioEdit-telefone');
+      radioContactType.checked = true;
+    }
+  
+  
+    if(contactEmailCheckArray[indice] === true){
+      let checkboxContactEmail = document.getElementById('checkEmailEdit');
+      checkboxContactEmail.checked = true;
+    }else{
+      let checkboxContactEmail = document.getElementById('checkEmailEdit');
+      checkboxContactEmail.checked = false;
+    }
+  }else if(screenType == 'read'){
+    var readDiv = document.getElementById('divUserDataRead');
+    readDiv.style.display = 'block';
+    var updateDiv = document.getElementById('divUserDataUpdate');
+    updateDiv.style.display= 'none';
+    nameFormAdm = document.getElementById('pNome-adm');
+    emailFormAdm = document.getElementById('pEmail-adm');
+    telephoneFormAdm = document.getElementById('pTelefone-adm');
+    messageFormAdm = document.getElementById('textMensagem-adm');
+    contactTimeCourseAdm = document.getElementById('pPeriodo-adm');
+    contactEmailCheckAdm = document.getElementById('pCheckEmail-adm');
+    contactTypeSelectedAdm =  document.getElementsByName('ptipoContato-adm');
 
-  nameFormAdm.value = nameFormArray[indice];
-  emailFormAdm.value = emailFormArray[indice];
-  telephoneFormAdm.value = telephoneFormArray[indice];
-  messageFormAdm.value= messageFormArray[indice];
-  contactTimeCourseAdm.value= contactTimeCourseArray[indice];
-
-  if(contactTypeSelectedArray[indice] == 'whatsapp'){
-    let radioContactType =document.getElementById('radioEdit-whatsapp');
-    radioContactType.checked = true;
-  }else if( contactTypeSelectedArray[indice] == 'email'){
-    let radioContactType =document.getElementById('radioEdit-email');
-    radioContactType.checked = true;
+    nameFormArray = JSON.parse(localStorage.getItem("user_name"));
+    emailFormArray = JSON.parse(localStorage.getItem("user_email"));
+    telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
+    messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
+    contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
+    contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
+    contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
+  
+    nameFormAdm.value = nameFormArray[indice];
+    emailFormAdm.value = emailFormArray[indice];
+    telephoneFormAdm.value = telephoneFormArray[indice];
+    messageFormAdm.value= messageFormArray[indice];
+    contactTimeCourseAdm.value= contactTimeCourseArray[indice];
+  
+    if(contactTypeSelectedArray[indice] == 'whatsapp'){
+      contactTypeSelectedAdm.innerHTML= 'Whatsapp';
+      
+    }else if( contactTypeSelectedArray[indice] == 'email'){
+      contactTypeSelectedAdm.innerHTML= 'Email';
+    }else{
+      contactTypeSelectedAdm.innerHTML= 'Celular';
+    }
+  
+  
+    if(contactEmailCheckArray[indice] === true){
+      contactEmailCheckAdm.value= 'Sim';
+    }else{
+      checkboxContactEmail = document.getElementById('checkEmailEdit');
+      contactEmailCheckAdm.innerHTML= 'Não';
+    }
   }else{
-    let radioContactType =document.getElementById('radioEdit-telefone');
-    radioContactType.checked = true;
+    console.log('error');
   }
-
-
-  if(contactEmailCheckArray[indice] === true){
-    let checkboxContactEmail = document.getElementById('checkEmailEdit');
-    checkboxContactEmail.checked = true;
-  }else{
-    let checkboxContactEmail = document.getElementById('checkEmailEdit');
-    checkboxContactEmail.checked = false;
-  }
+  
 }
 
 function updateUserData(indice) {
