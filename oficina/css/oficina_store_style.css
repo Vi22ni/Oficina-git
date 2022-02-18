@@ -387,7 +387,15 @@ table td:hover, th:hover{
 
 
 
+.dadosUsuariosSearch-adm{
+    margin-top: 5%;
+    height: 90%;
+    background-color: rgba(241,243,243,1);
+    padding: 15px;
+    border-radius: 2px;
+    display: none;
 
+}
 
 
 
@@ -471,9 +479,7 @@ table td:hover, th:hover{
     height: 500px;
     overflow-y: scroll;
 }
-.pNomeIndex{
-    display: none;
-}
+
 
 .btnDrop-adm{
     margin: 5% 0;

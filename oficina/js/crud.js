@@ -118,7 +118,7 @@ function listUsers(){
       const nameListItem= document.createElement('li');
       nameListItem.classList.add('task');
       const nameListItemContent = `<div class='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
-      <button type="button" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
+      <button type="button" onclick= "deleteUser(${userNameIndex})" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
       <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
       <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
 
@@ -176,13 +176,14 @@ function readAndUpdateCRUD(indice, screenType) {
     readDiv.style.display = 'block';
     var updateDiv = document.getElementById('divUserDataUpdate');
     updateDiv.style.display= 'none';
+
     nameFormAdm = document.getElementById('pNome-adm');
     emailFormAdm = document.getElementById('pEmail-adm');
     telephoneFormAdm = document.getElementById('pTelefone-adm');
     messageFormAdm = document.getElementById('textMensagem-adm');
     contactTimeCourseAdm = document.getElementById('pPeriodo-adm');
     contactEmailCheckAdm = document.getElementById('pCheckEmail-adm');
-    contactTypeSelectedAdm =  document.getElementsByName('ptipoContato-adm');
+    contactTypeSelectedAdm =  document.getElementById('pTipoContato-adm');
 
     nameFormArray = JSON.parse(localStorage.getItem("user_name"));
     emailFormArray = JSON.parse(localStorage.getItem("user_email"));
@@ -192,11 +193,11 @@ function readAndUpdateCRUD(indice, screenType) {
     contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
     contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
   
-    nameFormAdm.value = nameFormArray[indice];
-    emailFormAdm.value = emailFormArray[indice];
-    telephoneFormAdm.value = telephoneFormArray[indice];
-    messageFormAdm.value= messageFormArray[indice];
-    contactTimeCourseAdm.value= contactTimeCourseArray[indice];
+    nameFormAdm.innerHTML = nameFormArray[indice];
+    emailFormAdm.innerHTML = emailFormArray[indice];
+    telephoneFormAdm.innerHTML = telephoneFormArray[indice];
+    messageFormAdm.innerHTML= messageFormArray[indice];
+    contactTimeCourseAdm.innerHTML= contactTimeCourseArray[indice];
   
     if(contactTypeSelectedArray[indice] == 'whatsapp'){
       contactTypeSelectedAdm.innerHTML= 'Whatsapp';
@@ -208,10 +209,9 @@ function readAndUpdateCRUD(indice, screenType) {
     }
   
   
-    if(contactEmailCheckArray[indice] === true){
-      contactEmailCheckAdm.value= 'Sim';
+    if(contactEmailCheckArray[indice] == true){
+      contactEmailCheckAdm.innerHTML= 'Sim';
     }else{
-      checkboxContactEmail = document.getElementById('checkEmailEdit');
       contactEmailCheckAdm.innerHTML= 'Não';
     }
   }else{
@@ -257,4 +257,141 @@ function updateUserData(indice) {
   localStorage.setItem('user_timeCourse', JSON.stringify(contactTimeCourseArray));
   localStorage.setItem('user_emailCheck', JSON.stringify(contactEmailCheckArray));
 
+}
+
+function deleteUser(indice){
+  nameFormArray = JSON.parse(localStorage.getItem("user_name"));
+  emailFormArray = JSON.parse(localStorage.getItem("user_email"));
+  telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
+  messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
+  contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
+  contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
+  contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
+
+  for(i=0;i<nameFormArray.length; i++){
+    nameFormArray.splice(indice,1);
+    emailFormArray.splice(indice,1);
+    telephoneFormArray.splice(indice,1);
+    messageFormArray.splice(indice,1);
+    contactTypeSelectedArray.splice(indice,1);
+    contactTimeCourseArray.splice(indice,1);
+    contactEmailCheckArray.splice(indice,1);
+  }
+
+
+  alert("Usuário excluído!")
+  localStorage.setItem('user_name', JSON.stringify(nameFormArray));
+  localStorage.setItem('user_email', JSON.stringify(emailFormArray));
+  localStorage.setItem('user_tel', JSON.stringify(telephoneFormArray));
+  localStorage.setItem('user_msg', JSON.stringify(messageFormArray));
+  localStorage.setItem('user_contactType', JSON.stringify(contactTypeSelectedArray));
+  localStorage.setItem('user_timeCourse', JSON.stringify(contactTimeCourseArray));
+  localStorage.setItem('user_emailCheck', JSON.stringify(contactEmailCheckArray));
+  window.location.reload();
+
+}
+
+function searchCrud(buttonType) {
+
+    nameFormArray = JSON.parse(localStorage.getItem("user_name"));
+    emailFormArray = JSON.parse(localStorage.getItem("user_email"));
+    telephoneFormArray = JSON.parse(localStorage.getItem("user_tel"));
+    messageFormArray = JSON.parse(localStorage.getItem("user_msg"));
+    contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
+    contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
+    contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
+    searchName = document.getElementById('iptPesquisar-adm');
+    if(buttonType == 2){
+      window.location.reload();
+      var searchDiv = document.getElementById('dadosUsuariosSearch-adm');
+      searchDiv.style.display= 'block';
+      var normalDiv = document.getElementById('procurarUsuarios-adm');
+      normalDiv.style.display= 'none';  
+      document.getElementById('iptPesquisar-adm') = formerUserName;  
+      let didYouFindIt = 0;
+      let searchPosition = 0;
+
+    
+      for(i=0; i < nameFormArray.length; i++){
+
+        if(searchName.value == nameFormArray[i]){
+
+          didYouFindIt = 1
+          searchPosition = i;
+        
+        }
+      
+      }
+
+
+      if (didYouFindIt == 1){
+        var searchDiv = document.getElementById('dadosUsuariosSearch-adm');
+        searchDiv.style.display= 'block';
+        var normalDiv = document.getElementById('procurarUsuarios-adm');
+        normalDiv.style.display= 'none';
+        const nameListSearch = document.querySelector('[data-list-search]');
+        userName = nameFormArray[searchPosition];
+        const nameListSearchItem= document.createElement('li');
+        nameListSearchItem.classList.add('task');
+        const nameListItemSearchContent = `<div class='btnDrop-adm' id='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
+        <button type="button" onclick= "deleteUser(${searchPosition})" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
+        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
+        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
+
+        nameListSearchItem.innerHTML = nameListItemSearchContent;
+        nameListSearch.appendChild(nameListSearchItem);
+
+      
+      }else{
+
+          alert("Usuário não encontrado!")
+
+
+      }  
+      let formerUserName= nameFormArray[searchPosition];
+    }else{
+      let didYouFindIt = 0;
+      let searchPosition = 0;
+
+      
+      for(i=0; i < nameFormArray.length; i++){
+
+        if(searchName.value == nameFormArray[i]){
+
+          didYouFindIt = 1
+          searchPosition = i;
+        
+        }
+      
+      }
+
+
+      if (didYouFindIt == 1){
+        var searchDiv = document.getElementById('dadosUsuariosSearch-adm');
+        searchDiv.style.display= 'block';
+        var normalDiv = document.getElementById('procurarUsuarios-adm');
+        normalDiv.style.display= 'none';
+        const nameListSearch = document.querySelector('[data-list-search]');
+        userName = nameFormArray[searchPosition];
+        const nameListSearchItem= document.createElement('li');
+        nameListSearchItem.classList.add('task');
+        const nameListItemSearchContent = `<div class='btnDrop-adm' id='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
+        <button type="button" onclick= "deleteUser(${searchPosition})" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
+        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
+        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
+
+        nameListSearchItem.innerHTML = nameListItemSearchContent;
+        nameListSearch.appendChild(nameListSearchItem);
+
+      // Senão
+      }else{
+
+          alert("Usuário não encontrado!")
+
+
+      }  
+      let formerUserName= nameFormArray[searchPosition];  
+      }
+
+     
 }

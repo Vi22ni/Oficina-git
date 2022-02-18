@@ -33,11 +33,19 @@
             <div class='form-container2'>
                     <div class='primeira-parte-conteudo'>
                         <h class="tituloSecundario-adm">Usuários</h>
-                        <div class="procurarUsuarios-adm">
+                        <div class="procurarUsuarios-adm" id="procurarUsuarios-adm">
                             <input type='text' class="iptPesquisar-adm" id='iptPesquisar-adm'placeholder="Digite um nome">
-                            <button type="button" class="btnPesquisar-adm">Procurar</button>
+                            <button type="button" class="btnPesquisar-adm" onclick="searchCrud(1)">Procurar</button>
                             <div class="nomesUsuarios-adm">
-                                <ul class="listaDeUsuarios-adm" data-list>
+                                <ul class="listaDeUsuarios-adm" id='listaDeUsuarios-adm' data-list>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dadosUsuariosSearch-adm" id="dadosUsuariosSearch-adm">
+                            <input type='text' class="iptPesquisar-adm" id='iptPesquisar-adm'placeholder="Digite um nome">
+                            <button type="button" class="btnPesquisar-adm"  onclick="searchCrud(2)"> Procurar</button>
+                            <div class="nomesUsuarios-adm">
+                                <ul class="listaDeUsuarios-adm" data-list-search>
                                 </ul>
                             </div>
                         </div>
@@ -49,15 +57,15 @@
                             <h class="tituloDados-adm">Nome: </h>
                             <p class="pLista-adm" id="pNome-adm"></p>
                             <h class="tituloDados-adm">Email: </h>
-                            <p class="pLista-adm" id="pEmail-adm">vinicius22bueno@gmail.com</p>
+                            <p class="pLista-adm" id="pEmail-adm"></p>
                             <h class="tituloDados-adm">Telefone:</h>
-                            <p class="pLista-adm" id="pTelefone-adm">48998227104</p>
+                            <p class="pLista-adm" id="pTelefone-adm"></p>
                             <h class="tituloDados-adm">Tipo de contato: </h>
-                            <p class="pLista-adm" id="pTipoContato-adm">Whatsapp</p>
+                            <p class="pLista-adm" id="pTipoContato-adm"></p>
                             <h class="tituloDados-adm">Período para contato: </h>
-                            <p class="pLista-adm" id="pPeriodo-adm">Manhã</p>
+                            <p class="pLista-adm" id="pPeriodo-adm"></p>
                             <h class="tituloDados-adm">Gostaria de receber emails? </h>
-                            <p class="pLista-adm" id="pEmailCheck-adm">Sim</p>
+                            <p class="pLista-adm" id="pCheckEmail-adm"></p>
                             <h class="tituloDados-adm">Mensagem:</h>
                             <textarea class="pLista-adm" id="textMensagem-adm" readonly ></textarea>
                         </div>
