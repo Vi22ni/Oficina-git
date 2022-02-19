@@ -117,10 +117,13 @@ function listUsers(){
       userNameIndex = i;
       const nameListItem= document.createElement('li');
       nameListItem.classList.add('task');
-      const nameListItemContent = `<div class='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
-      <button type="button" onclick= "deleteUser(${userNameIndex})" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
-      <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
-      <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
+      const nameListItemContent = `<div class='btnDrop-adm' id='divListUser${userNameIndex}'><p id="btnNome-adm">${userName}</p>
+      <button type="button" onclick='updateUserData(${userNameIndex})'class="btnNomeOpcao-adm" id="btnAtualizar-adm">U</button>
+      <button type="button" onclick= "deleteUser(${userNameIndex})" class="btnNomeOpcao-adm" id="btnDeletar-adm">D</button>
+      <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">L</button>
+      <button type="button" onclick= "readAndUpdateCRUD(${userNameIndex}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">
+      E</button></div>
+      `;
 
       nameListItem.innerHTML = nameListItemContent;
       nameList.appendChild(nameListItem);
@@ -134,6 +137,15 @@ listUsers();
 
 function readAndUpdateCRUD(indice, screenType) {
   if(screenType == 'update'){
+    nameFormAdm = document.getElementById('iptNome-adm');
+    emailFormAdm = document.getElementById('iptEmail-adm');
+    telephoneFormAdm = document.getElementById('iptTelefone-adm');
+    messageFormAdm = document.getElementById('textMensagemEdit-adm');
+    contactTimeCourseAdm = document.getElementById('slcEdit-horario');
+    contactEmailCheckAdm = document.getElementById('checkEmailEdit-adm');
+    contactTypeSelectedAdm =  document.getElementsByName('contato');
+
+
     var updateDiv = document.getElementById('divUserDataUpdate');
     updateDiv.style.display= 'block';
     var updateDiv = document.getElementById('divUserDataRead');
@@ -205,7 +217,7 @@ function readAndUpdateCRUD(indice, screenType) {
     }else if( contactTypeSelectedArray[indice] == 'email'){
       contactTypeSelectedAdm.innerHTML= 'Email';
     }else{
-      contactTypeSelectedAdm.innerHTML= 'Celular';
+      contactTypeSelectedAdm.innerHTML= 'Telefone';
     }
   
   
@@ -256,6 +268,7 @@ function updateUserData(indice) {
   localStorage.setItem('user_contactType', JSON.stringify(contactTypeSelectedArray));
   localStorage.setItem('user_timeCourse', JSON.stringify(contactTimeCourseArray));
   localStorage.setItem('user_emailCheck', JSON.stringify(contactEmailCheckArray));
+  window.location.reload();
 
 }
 
@@ -291,7 +304,7 @@ function deleteUser(indice){
 
 }
 
-function searchCrud(buttonType) {
+function searchCrud(){
 
     nameFormArray = JSON.parse(localStorage.getItem("user_name"));
     emailFormArray = JSON.parse(localStorage.getItem("user_email"));
@@ -300,98 +313,44 @@ function searchCrud(buttonType) {
     contactTypeSelectedArray = JSON.parse(localStorage.getItem("user_contactType"));
     contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
     contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
+
     searchName = document.getElementById('iptPesquisar-adm');
-    if(buttonType == 2){
-      window.location.reload();
-      var searchDiv = document.getElementById('dadosUsuariosSearch-adm');
-      searchDiv.style.display= 'block';
-      var normalDiv = document.getElementById('procurarUsuarios-adm');
-      normalDiv.style.display= 'none';  
-      document.getElementById('iptPesquisar-adm') = formerUserName;  
-      let didYouFindIt = 0;
-      let searchPosition = 0;
+
+    let didYouFindIt = 0;
+    let searchPosition = 0;
 
     
-      for(i=0; i < nameFormArray.length; i++){
+    for(i=0; i < nameFormArray.length; i++){
 
-        if(searchName.value == nameFormArray[i]){
-
-          didYouFindIt = 1
-          searchPosition = i;
+      if(searchName.value == nameFormArray[i]){
         
-        }
+        didYouFindIt = 1
+        searchPosition = i;
       
       }
+    
+    }
 
 
-      if (didYouFindIt == 1){
-        var searchDiv = document.getElementById('dadosUsuariosSearch-adm');
-        searchDiv.style.display= 'block';
-        var normalDiv = document.getElementById('procurarUsuarios-adm');
-        normalDiv.style.display= 'none';
-        const nameListSearch = document.querySelector('[data-list-search]');
-        userName = nameFormArray[searchPosition];
-        const nameListSearchItem= document.createElement('li');
-        nameListSearchItem.classList.add('task');
-        const nameListItemSearchContent = `<div class='btnDrop-adm' id='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
-        <button type="button" onclick= "deleteUser(${searchPosition})" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
-        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
-        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
+    if (didYouFindIt == 1){
+      for (let i = 0; i < nameFormArray.length; i++) {
+        if(nameFormArray[i] != searchName.value ){
+          let divToBeHidden= document.getElementById('divListUser' + [i])
+          divToBeHidden.style.display = 'none';
+        }else{
+          let divToBeHidden= document.getElementById('divListUser' + [i])
+          divToBeHidden.style.display = 'block';
+        }
+      }
 
-        nameListSearchItem.innerHTML = nameListItemSearchContent;
-        nameListSearch.appendChild(nameListSearchItem);
-
-      
-      }else{
-
-          alert("Usuário não encontrado!")
-
-
-      }  
-      let formerUserName= nameFormArray[searchPosition];
+    // Senão
     }else{
-      let didYouFindIt = 0;
-      let searchPosition = 0;
 
-      
-      for(i=0; i < nameFormArray.length; i++){
-
-        if(searchName.value == nameFormArray[i]){
-
-          didYouFindIt = 1
-          searchPosition = i;
-        
-        }
-      
-      }
+        alert("Usuário não encontrado!")
 
 
-      if (didYouFindIt == 1){
-        var searchDiv = document.getElementById('dadosUsuariosSearch-adm');
-        searchDiv.style.display= 'block';
-        var normalDiv = document.getElementById('procurarUsuarios-adm');
-        normalDiv.style.display= 'none';
-        const nameListSearch = document.querySelector('[data-list-search]');
-        userName = nameFormArray[searchPosition];
-        const nameListSearchItem= document.createElement('li');
-        nameListSearchItem.classList.add('task');
-        const nameListItemSearchContent = `<div class='btnDrop-adm' id='btnDrop-adm'><p id="btnNome-adm">${userName}</p>
-        <button type="button" onclick= "deleteUser(${searchPosition})" class="btnNomeOpcao-adm" id="btnDeletar-adm">X</button>
-        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'read')" class="btnNomeOpcao-adm" id="btnVer-adm">V</button>
-        <button type="button" onclick= "readAndUpdateCRUD(${searchPosition}, 'update')" class="btnNomeOpcao-adm" id="btnEditar-adm">E</button></div>`;
+    }  
+    let formerUserName= nameFormArray[searchPosition];  
 
-        nameListSearchItem.innerHTML = nameListItemSearchContent;
-        nameListSearch.appendChild(nameListSearchItem);
-
-      // Senão
-      }else{
-
-          alert("Usuário não encontrado!")
-
-
-      }  
-      let formerUserName= nameFormArray[searchPosition];  
-      }
-
-     
+    
 }

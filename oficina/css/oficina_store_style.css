@@ -529,6 +529,10 @@ table td:hover, th:hover{
     background-color: #e97f7f;
     color: #FEFEFE;
 }
+#btnAtualizar-adm{
+    background-color: #491f81;
+    color: #FEFEFE;
+}
 .btnDrop-adm p{
     font-size: 15px;
     margin-top: 10px;

@@ -35,20 +35,13 @@
                         <h class="tituloSecundario-adm">Usuários</h>
                         <div class="procurarUsuarios-adm" id="procurarUsuarios-adm">
                             <input type='text' class="iptPesquisar-adm" id='iptPesquisar-adm'placeholder="Digite um nome">
-                            <button type="button" class="btnPesquisar-adm" onclick="searchCrud(1)">Procurar</button>
+                            <button type="button" class="btnPesquisar-adm" onclick="searchCrud()">Procurar</button>
                             <div class="nomesUsuarios-adm">
                                 <ul class="listaDeUsuarios-adm" id='listaDeUsuarios-adm' data-list>
                                 </ul>
                             </div>
                         </div>
-                        <div class="dadosUsuariosSearch-adm" id="dadosUsuariosSearch-adm">
-                            <input type='text' class="iptPesquisar-adm" id='iptPesquisar-adm'placeholder="Digite um nome">
-                            <button type="button" class="btnPesquisar-adm"  onclick="searchCrud(2)"> Procurar</button>
-                            <div class="nomesUsuarios-adm">
-                                <ul class="listaDeUsuarios-adm" data-list-search>
-                                </ul>
-                            </div>
-                        </div>
+                        
                         
                     </div>
                     <div class='segunda-parte-conteudo'>
@@ -99,7 +92,6 @@
                             <label class='lbl-radio-option-select'><input type='checkbox' id="checkEmailEdit">Gostaria de receber nossas novidades por e-mail? </label>
                             <h class="tituloDados-adm">Mensagem:</h>
                             <textarea class="pLista-adm" id="textMensagemEdit-adm"></textarea>
-                            <button type="button" onclick='updateUserData(`${userNameIndex}`)'class="enviar">Atualizar</button>
                         </div>
                         
                     </div>
