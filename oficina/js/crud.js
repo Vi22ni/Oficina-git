@@ -281,15 +281,14 @@ function deleteUser(indice){
   contactTimeCourseArray = JSON.parse(localStorage.getItem("user_timeCourse"));
   contactEmailCheckArray = JSON.parse(localStorage.getItem("user_emailCheck"));
 
-  for(i=0;i<nameFormArray.length; i++){
-    nameFormArray.splice(indice,1);
-    emailFormArray.splice(indice,1);
-    telephoneFormArray.splice(indice,1);
-    messageFormArray.splice(indice,1);
-    contactTypeSelectedArray.splice(indice,1);
-    contactTimeCourseArray.splice(indice,1);
-    contactEmailCheckArray.splice(indice,1);
-  }
+
+  nameFormArray.splice(indice,1);
+  emailFormArray.splice(indice,1);
+  telephoneFormArray.splice(indice,1);
+  messageFormArray.splice(indice,1);
+  contactTypeSelectedArray.splice(indice,1);
+  contactTimeCourseArray.splice(indice,1);
+  contactEmailCheckArray.splice(indice,1);
 
 
   alert("Usuário excluído!")
